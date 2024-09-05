@@ -1,0 +1,21 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: awsgp2
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  zone: us-east-1a
+  #zones: us-east-1a, us-east-1b
+  type: gp2
+  fsType: ext4
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: awsio1
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: io1 
+  zones: us-east-1a
+  iopsPerGB: "5"
+ 
